@@ -15,6 +15,7 @@ class Rests extends Migration
     {
         Schema::create('rests', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
+            $table->integer('id_user');
             $table->string('name');
             $table->string('url');
             $table->text('desc');
@@ -25,8 +26,10 @@ class Rests extends Migration
             $table->string('logo_path');
             $table->enum('status', ['on', 'off'])->default('on');
 
+
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('CASCADE');
             
-            
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

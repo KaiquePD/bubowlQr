@@ -25,27 +25,7 @@ Route::prefix('/publish')->group(function () {
             Route::match(['post', 'get'], '/create', 'RestController@create')->name('rests.create');
         });
         
-        // Rest
-        Route::prefix('/rests')->group(function () {
-            Route::get('/', 'RestController@index')->name('rests.index');
-            Route::get('/trashed', 'RestController@trashed')->name('rests.trashed');
-            Route::delete('/destroy/{id}', 'RestController@destroy')->name('rests.destroy');
-            Route::get('/{id}/restore', 'RestController@restore')->name('rests.restore');
-            Route::delete('/{id}/forceDelete', 'RestController@forceDelete')->name('rests.forceDelete');
-            Route::match(['post', 'get'], '/{id}/edit', 'RestController@edit')->name('rests.edit');
-            Route::match(['post', 'get'], '/create', 'RestController@create')->name('rests.create');
-        });
-        
-        // Rest
-        Route::prefix('/rests')->group(function () {
-            Route::get('/', 'RestController@index')->name('rests.index');
-            Route::get('/trashed', 'RestController@trashed')->name('rests.trashed');
-            Route::delete('/destroy/{id}', 'RestController@destroy')->name('rests.destroy');
-            Route::get('/{id}/restore', 'RestController@restore')->name('rests.restore');
-            Route::delete('/{id}/forceDelete', 'RestController@forceDelete')->name('rests.forceDelete');
-            Route::match(['post', 'get'], '/{id}/edit', 'RestController@edit')->name('rests.edit');
-            Route::match(['post', 'get'], '/create', 'RestController@create')->name('rests.create');
-        });
+
         
         // Segment
         Route::prefix('/segments')->group(function () {
@@ -58,17 +38,7 @@ Route::prefix('/publish')->group(function () {
             Route::match(['post', 'get'], '/create', 'SegmentController@create')->name('segments.create');
         });
         
-        // Food
-        Route::prefix('/food')->group(function () {
-            Route::get('/', 'FoodController@index')->name('food.index');
-            Route::get('/trashed', 'FoodController@trashed')->name('food.trashed');
-            Route::delete('/destroy/{id}', 'FoodController@destroy')->name('food.destroy');
-            Route::get('/{id}/restore', 'FoodController@restore')->name('food.restore');
-            Route::delete('/{id}/forceDelete', 'FoodController@forceDelete')->name('food.forceDelete');
-            Route::match(['post', 'get'], '/{id}/edit', 'FoodController@edit')->name('food.edit');
-            Route::match(['post', 'get'], '/create', 'FoodController@create')->name('food.create');
-        });
-        
+
         // Food
         Route::prefix('/food')->group(function () {
             Route::get('/', 'FoodController@index')->name('food.index');
