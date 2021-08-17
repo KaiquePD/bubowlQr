@@ -1,0 +1,29 @@
+#conteudo{
+    display: block;
+    margin: 0 15vw;
+
+    .Fpost{
+        width: 70vw;
+        margin: 20px auto;
+        box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.411);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(245, 245, 245);
+        img{
+            width: 200px;
+        }
+        figcaption{
+            background-color: white;
+            width: 70vw;
+            padding: 15px;
+            span{
+                text-align: left;
+                color: $corPrincipal1;
+            }
+            h2{
+                color: black;
+            }
+        }
+    }
+}
