@@ -2,27 +2,32 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Admin\RestRequest;
+use App\Models\User;
+use App\Models\Rest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function __construct()
+    public function index(RestRequest $request)
     {
-        $this->middleware('auth');
+        /** @var Rest $rests */
+        // $user = Auth::user();
+        $user = User::where('id', Auth::id())->first();
+        $rest = Rest::where('id_user', $user->id)->first();
+        return view('admin.index', [
+            'user' => $user,
+            'rest' => $rest,
+        ]);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        return view('home');
-    }
+
 }

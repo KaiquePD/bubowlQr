@@ -3,14 +3,16 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md             <div class="card-header">{{ __('Dashboard') }}</div>
+        <div class="col-md" >          
+              <div class="card-header">{{ __('Dashboard') }}</div>
             <div class="card">
-                <div id="editor"></div>
-                
+                <div id="editor"></div> 
             </div>
         </div>
         
     </div>
+
+
 </div>
 <script>
         var quill = new Quill('#editor', {

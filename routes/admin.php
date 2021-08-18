@@ -61,3 +61,47 @@ Route::prefix('/publish')->group(function () {
             Route::match(['post', 'get'], '/create', 'FoodsController@create')->name('foods.create');
         });
         
+        // Rest
+        Route::prefix('/rests')->group(function () {
+            Route::get('/', 'RestController@index')->name('rests.index');
+            Route::get('/trashed', 'RestController@trashed')->name('rests.trashed');
+            Route::delete('/destroy/{id}', 'RestController@destroy')->name('rests.destroy');
+            Route::get('/{id}/restore', 'RestController@restore')->name('rests.restore');
+            Route::delete('/{id}/forceDelete', 'RestController@forceDelete')->name('rests.forceDelete');
+            Route::match(['post', 'get'], '/{id}/edit', 'RestController@edit')->name('rests.edit');
+            Route::match(['post', 'get'], '/create', 'RestController@create')->name('rests.create');
+        });
+        
+        // User
+        Route::prefix('/users')->group(function () {
+            Route::get('/', 'UserController@index')->name('users.index');
+            Route::get('/trashed', 'UserController@trashed')->name('users.trashed');
+            Route::delete('/destroy/{id}', 'UserController@destroy')->name('users.destroy');
+            Route::get('/{id}/restore', 'UserController@restore')->name('users.restore');
+            Route::delete('/{id}/forceDelete', 'UserController@forceDelete')->name('users.forceDelete');
+            Route::match(['post', 'get'], '/{id}/edit', 'UserController@edit')->name('users.edit');
+            Route::match(['post', 'get'], '/create', 'UserController@create')->name('users.create');
+        });
+        
+        // Rest
+        Route::prefix('/rests')->group(function () {
+            Route::get('/', 'RestController@index')->name('rests.index');
+            Route::get('/trashed', 'RestController@trashed')->name('rests.trashed');
+            Route::delete('/destroy/{id}', 'RestController@destroy')->name('rests.destroy');
+            Route::get('/{id}/restore', 'RestController@restore')->name('rests.restore');
+            Route::delete('/{id}/forceDelete', 'RestController@forceDelete')->name('rests.forceDelete');
+            Route::match(['post', 'get'], '/{id}/edit', 'RestController@edit')->name('rests.edit');
+            Route::match(['post', 'get'], '/create', 'RestController@create')->name('rests.create');
+        });
+        
+        // User
+        Route::prefix('/users')->group(function () {
+            Route::get('/', 'UserController@index')->name('users.index');
+            Route::get('/trashed', 'UserController@trashed')->name('users.trashed');
+            Route::delete('/destroy/{id}', 'UserController@destroy')->name('users.destroy');
+            Route::get('/{id}/restore', 'UserController@restore')->name('users.restore');
+            Route::delete('/{id}/forceDelete', 'UserController@forceDelete')->name('users.forceDelete');
+            Route::match(['post', 'get'], '/{id}/edit', 'UserController@edit')->name('users.edit');
+            Route::match(['post', 'get'], '/create', 'UserController@create')->name('users.create');
+        });
+        
