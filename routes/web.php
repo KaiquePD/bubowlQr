@@ -11,6 +11,7 @@ Route::get('/home', function () {
     return redirect("/admin");
 });
 
+
 Route::get('/admin', 'Admin\AdminController@index')->name('domains.index');
 
 Route::group([
@@ -19,8 +20,9 @@ Route::group([
     'middleware' => 'auth',
     'as' => 'admin.'
 ], function () {
-
-
+    
+    
+            Route::get('/', 'HomeController@index')->name('home');
             // Rest
             Route::prefix('/rests')->group(function () {
                 Route::get('/', 'RestController@index')->name('rests.index');
@@ -57,16 +59,16 @@ Route::group([
                 Route::match(['post', 'get'], '/create', 'FoodController@create')->name('food.create');
             });
             
-            // Foods
-            Route::prefix('/foods')->group(function () {
-                Route::get('/', 'FoodsController@index')->name('foods.index');
-                Route::get('/trashed', 'FoodsController@trashed')->name('foods.trashed');
-                Route::delete('/destroy/{id}', 'FoodsController@destroy')->name('foods.destroy');
-                Route::get('/{id}/restore', 'FoodsController@restore')->name('foods.restore');
-                Route::delete('/{id}/forceDelete', 'FoodsController@forceDelete')->name('foods.forceDelete');
-                Route::match(['post', 'get'], '/{id}/edit', 'FoodsController@edit')->name('foods.edit');
-                Route::match(['post', 'get'], '/create', 'FoodsController@create')->name('foods.create');
-            });
+            // // Foods
+            // Route::prefix('/foods')->group(function () {
+            //     Route::get('/', 'FoodsController@index')->name('foods.index');
+            //     Route::get('/trashed', 'FoodsController@trashed')->name('foods.trashed');
+            //     Route::delete('/destroy/{id}', 'FoodsController@destroy')->name('foods.destroy');
+            //     Route::get('/{id}/restore', 'FoodsController@restore')->name('foods.restore');
+            //     Route::delete('/{id}/forceDelete', 'FoodsController@forceDelete')->name('foods.forceDelete');
+            //     Route::match(['post', 'get'], '/{id}/edit', 'FoodsController@edit')->name('foods.edit');
+            //     Route::match(['post', 'get'], '/create', 'FoodsController@create')->name('foods.create');
+            // });
 
 
 });
@@ -91,14 +93,5 @@ Route::namespace('api')->group(function(){
     Route::get('/api/{slug}', 'CategoryController@show');
 
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

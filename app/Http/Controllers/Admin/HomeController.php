@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
@@ -22,10 +22,8 @@ class HomeController extends Controller
         /** @var Rest $rests */
         // $user = Auth::user();
         $user = User::where('id', Auth::id())->first();
-        $rest = Rest::where('id_user', $user->id)->first();
         return view('admin.index', [
             'user' => $user,
-            'rest' => $rest,
         ]);
     }
 
